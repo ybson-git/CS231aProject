@@ -1,4 +1,3 @@
-
 import os, sys, inspect
 import torch
 import torch.nn as nn
@@ -10,7 +9,17 @@ from projection import Projection
 
 # z-y-x coordinates
 class Model2d3d(nn.Module):
-    def __init__(self, num_classes, num_images, intrinsic, image_dims, grid_dims, depth_min, depth_max, voxel_size):
+    def __init__(
+        self,
+        num_classes,
+        num_images,
+        intrinsic,
+        image_dims,
+        grid_dims,
+        depth_min,
+        depth_max,
+        voxel_size,
+    ):
         super(Model2d3d, self).__init__()
         self.num_classes = num_classes
         self.num_images = num_images
@@ -20,9 +29,9 @@ class Model2d3d(nn.Module):
         self.depth_min = depth_min
         self.depth_max = depth_max
         self.voxel_size = voxel_size
-        self.nf0 = 32 
-        self.nf1 = 64 
-        self.nf2 = 128 
+        self.nf0 = 32
+        self.nf1 = 64
+        self.nf2 = 128
         self.bf = 1024
         column_height = grid_dims[2]
         self.pooling = nn.MaxPool1d(kernel_size=num_images)
@@ -48,7 +57,7 @@ class Model2d3d(nn.Module):
             nn.Conv3d(32, 32, kernel_size=1, stride=1, padding=0),
             nn.BatchNorm3d(32),
             nn.ReLU(True),
-            nn.Dropout3d(0.2)
+            nn.Dropout3d(0.2),
         )
         self.features3d = nn.Sequential(
             # output self.nf0 x 30x15x15
@@ -72,11 +81,13 @@ class Model2d3d(nn.Module):
             nn.Conv3d(self.nf1, self.nf1, kernel_size=1, stride=1, padding=0),
             nn.BatchNorm3d(self.nf1),
             nn.ReLU(True),
-            nn.Dropout3d(0.2)
+            nn.Dropout3d(0.2),
         )
         self.features = nn.Sequential(
             # output self.nf2 x 6x3x3
-            nn.Conv3d(self.nf1+32, self.nf2, kernel_size=[4, 3, 3], stride=2, padding=0),
+            nn.Conv3d(
+                self.nf1 + 32, self.nf2, kernel_size=[4, 3, 3], stride=2, padding=0
+            ),
             nn.BatchNorm3d(self.nf2),
             nn.ReLU(True),
             nn.Conv3d(self.nf2, self.nf2, kernel_size=1, stride=1, padding=0),
@@ -85,22 +96,34 @@ class Model2d3d(nn.Module):
             nn.Conv3d(self.nf2, self.nf2, kernel_size=1, stride=1, padding=0),
             nn.BatchNorm3d(self.nf2),
             nn.ReLU(True),
-            nn.Dropout3d(0.2)
+            nn.Dropout3d(0.2),
         )
         self.classifier = nn.Sequential(
             nn.Linear(self.nf2 * 54, self.bf),
             nn.ReLU(True),
             nn.Dropout(0.5),
-            nn.Linear(self.bf, num_classes*column_height)
+            nn.Linear(self.bf, num_classes * column_height),
         )
 
-    def forward(self, volume, image_features, projection_indices_3d, projection_indices_2d, volume_dims):
+    def forward(
+        self,
+        volume,
+        image_features,
+        projection_indices_3d,
+        projection_indices_2d,
+        volume_dims,
+    ):
         assert len(volume.shape) == 5 and len(image_features.shape) == 4
         batch_size = volume.shape[0]
         num_images = projection_indices_3d.shape[0] // batch_size
 
         # project 2d to 3d
-        image_features = [Projection.apply(ft, ind3d, ind2d, volume_dims) for ft, ind3d, ind2d in zip(image_features, projection_indices_3d, projection_indices_2d)]
+        image_features = [
+            Projection.apply(ft, ind3d, ind2d, volume_dims)
+            for ft, ind3d, ind2d in zip(
+                image_features, projection_indices_3d, projection_indices_2d
+            )
+        ]
         image_features = torch.stack(image_features, dim=4)
 
         # reshape to max pool over features
