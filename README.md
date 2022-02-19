@@ -13,6 +13,9 @@ In case not compatible, here is step-by-step of dependencies to be installed thr
  - conda install torchnet  
  - pip install torchnet  
  - pip install h5py  
+ - conda install scikit-image  
+ - pip install opencv-python  
+ - pip install pypng  
 Then you can create a environment yml file for your backup: *conda env export > your_venv.yml*  
 
 ## Test Code
