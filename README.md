@@ -1,22 +1,16 @@
 # CS231aProject
+After you clone this repo, run ***git submodule update --init --recursive*** to initiate another clone for Open3D and mirror3d repos.
 
+## Open3D_TrueDepth_registration
+It looks like the auther is using Linux, if you have same machine just follow steps: https://github.com/nghiaho12/Open3D_TrueDepth_registration  
 
-## Virtual Environment (venv)
-Use Conda to align Python environment, refer to https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html  
+If you are using MacOS, M1 chip, like me, here is what I did:  
+ - Install brew: https://brew.sh/  
+ - Install ceres-solver and eigen: http://ceres-solver.org/installation.html  
+ - Follow the auther to install python libraries using pip3.  
+ - Note I don't use Ananconda as it created environment for x86_64 but when I build cpp it is arm64, results in incompatible.  
+ - Build cpp pose graph file with the Open3D repo instruction.  
+ - Back to Open3D root, run *python3 run.py ../Open3D_box_can/*, you should see it runs.  
 
-If you are using Mac M1 chip, then you can directly create your venv by environment_mac_m1.yml  
+## mirror3d
 
-In case not compatible, here is step-by-step of dependencies to be installed through conda:  
- - conda create --name cs231a python=3.8  
- - conda activate cs231a  
- - conda install pytorch torchvision torchaudio -c pytorch  
- - conda install torchnet  
- - pip install torchnet  
- - pip install h5py  
- - conda install scikit-image  
- - pip install opencv-python  
- - pip install pypng  
-Then you can create a environment yml file for your backup: *conda env export > your_venv.yml*  
-
-## Test Code
-Under Conda venv, nevigate to /3DMV-master/3dmv, and run *python train.py --help* and *python test.py --help* to see if can successfully see help instructions.  
