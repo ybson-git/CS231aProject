@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Open3D_TrueDepth_registration" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Open3D_TrueDepth_registration/cpp/pybind11" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mirror3d" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mirror3d/mirror3d/init_depth_generator/VNL_Monocular_Depth_Prediction" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mirror3d/mirror3d/init_depth_generator/bts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mirror3d/mirror3d/init_depth_generator/saic_depth_completion" vcs="Git" />
+  </component>
+</project>
