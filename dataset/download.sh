@@ -1,0 +1,13 @@
+wget http://aspis.cmpt.sfu.ca/projects/mirrors/mirror3d_zip_release/mp3d.zip 
+unzip mp3d.zip 
+wget http://aspis.cmpt.sfu.ca/projects/mirrors/mirror3d_zip_release/scannet.zip 
+unzip scannet.zip 
+wget http://aspis.cmpt.sfu.ca/projects/mirrors/mirror3d_zip_release/nyu.zip 
+unzip nyu.zip 
+cd ..
+wget http://aspis.cmpt.sfu.ca/projects/mirrors/mirror3d_zip_release/mirror3d_input.zip
+unzip mirror3d_input.zip
+mkdir checkpoint
+cd checkpoint
+wget https://dl.fbaipublicfiles.com/detectron2/ImageNetPretrained/MSRA/R-50.pkl
+cd ../mirror3d
