@@ -15,11 +15,10 @@ If you are using MacOS, M1 chip, like me, here is what I did:
 ## mirror3d
 
 If you are using M1 mac, the python and packages may not work as given. Sharing my configuration:
-Python version used: 3.8.11
 
 "pip install -e ." command may not work right away. 
 
-1) conda install python=3.9.6  (also tried 3.8.12)
+1) conda install python=3.9.6  (also tried 3.8.11)
 2) I could not install open3d and h5py as-given. You need to first delete these two packages from the setup.py in the mirror3d dir.
 3) pip install -e .
 4) (Instead of using the script given) CC=clang CXX=clang++ ARCHFLAGS="-arch arm64" python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
