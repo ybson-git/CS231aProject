@@ -29,4 +29,5 @@ If you are using M1 mac, the python and packages may not work as given. Sharing 
 7) to install h5py: conda install h5py
 8) to install tensorboard: conda install tensorboard
 
-
+## kinect
+The code to visualize color and depth images taken from Azure Kinect.
