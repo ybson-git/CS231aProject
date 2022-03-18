@@ -1,7 +1,3 @@
-[submodule "Open3D_TrueDepth_registration"]
-	path = Open3D_TrueDepth_registration
-	url = git@github.com:nghiaho12/Open3D_TrueDepth_registration.git
-
 [submodule "mirror3d"]
 	path = mirror3d
 	url = git@github.com:AJArnolie/mirror3d.git
