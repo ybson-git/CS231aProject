@@ -4,4 +4,4 @@
 
 [submodule "mirror3d"]
 	path = mirror3d
-	url = git@github.com:3dlg-hcvc/mirror3d.git
+	url = git@github.com:AJArnolie/mirror3d.git
