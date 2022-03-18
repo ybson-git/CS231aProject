@@ -1,4 +1,4 @@
-# Code Repo: Detection of Mirrors in 3D Scene from 2D Images
+# Code Repo: Detection of Mirrors in 3D Scenes from 2D Images
 _AJ Arnolie, Chunwei Chen, and Youngbae Son_
 
 March 2022
