@@ -12,7 +12,20 @@ After you clone this repo, run ***git submodule update --init --recursive*** to 
 ## Mirror3DNet
 
 In order to set up this module, simply follow the instructions in the README of the Mirror3DNet Github repo.
-1) You will need to download the necessary checkpoints.
-2) Clone the submodules of the Mirror3D module (DPT, GLPDepth, BTS, VTS)
-## Kinect
-The code to visualize color and depth images taken from Azure Kinect.
+1) Clone the module and submodules of the Mirror3D module (DPT, GLPDepth, BTS, VTS) with `git clone --recursive https://github.com/3dlg-hcvc/mirror3d.git`
+2) Set up Detectron2 with `python -m pip install git+https://github.com/facebookresearch/detectron2.git`
+3) Install necessary packages for Mirror3DNet with `cd mirror3d && pip install -e .`.
+4) Download the necessary checkpoints and input data with:
+```
+### Download all pretrained checkpoints
+wget http://aspis.cmpt.sfu.ca/projects/mirrors/mirror3d_zip_release/checkpoint.zip
+unzip checkpoint.zip
+
+### Download network input json
+wget http://aspis.cmpt.sfu.ca/projects/mirrors/mirror3d_zip_release/mirror3d_input.zip
+unzip mirror3d_input.zip
+```
+
+## Azure Kinect Data
+
+The code to visualize color and depth images taken from the Azure Kinect Sensor SDK Github Repository (https://github.com/microsoft/Azure-Kinect-Sensor-SDK).
