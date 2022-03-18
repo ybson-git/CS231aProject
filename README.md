@@ -36,7 +36,7 @@ In order to set up this module, simply follow the instructions in the README of 
 4) (Instead of using the script given) CC=clang CXX=clang++ ARCHFLAGS="-arch arm64" python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
 5) to install open3d : pip install open3d
 
-(The below steps will downgrade numpy from 1.22.2 to 1.20.3) --> But this is where numpy starts to not work in the environment. (Import error) 
+(The below steps will downgrade numpy from 1.22.2 to 1.20.3) -> But this is where numpy starts to not work in the environment. (Import error) 
 6) to install pytorch: conda install pytorch torchvision -c pytorch
 7) to install h5py: conda install h5py
 8) to install tensorboard: conda install tensorboard
