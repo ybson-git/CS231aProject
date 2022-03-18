@@ -22,7 +22,11 @@ If you are using MacOS, M1 chip, like me, here is what I did:
 
 ## Mirror3DNet
 
-If you are using M1 mac, the python and packages may not work as given. Sharing my configuration:
+In order to set up this module, simply follow the instructions in the README of the Mirror3DNet Github repo.
+1) You will need to download the necessary checkpoints.
+2) Clone the submodules of the Mirror3D module (DPT, GLPDepth, BTS, VTS)
+
+<!-- If you are using M1 mac, the python and packages may not work as given. Sharing my configuration:
 
 "pip install -e ." command may not work right away. 
 
@@ -36,6 +40,6 @@ If you are using M1 mac, the python and packages may not work as given. Sharing 
 6) to install pytorch: conda install pytorch torchvision -c pytorch
 7) to install h5py: conda install h5py
 8) to install tensorboard: conda install tensorboard
-
+ -->
 ## Kinect
 The code to visualize color and depth images taken from Azure Kinect.
