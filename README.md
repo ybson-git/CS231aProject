@@ -28,4 +28,4 @@ unzip mirror3d_input.zip
 
 ## Azure Kinect Data
 
-The code to visualize color and depth images taken from the Azure Kinect Sensor SDK Github Repository (https://github.com/microsoft/Azure-Kinect-Sensor-SDK).
+The code to visualize color and depth images is taken from the Azure Kinect Sensor SDK Github Repository (https://github.com/microsoft/Azure-Kinect-Sensor-SDK).
